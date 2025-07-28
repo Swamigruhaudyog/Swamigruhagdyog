@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Swami Gruha Udyog | Handcrafted Home Decor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      color: #333;
+      background: 
+        url('background.jpg') center/cover fixed,
+        #fff9f9;
+      background-blend-mode: soft-light;
+      background-color: rgba(255, 249, 249, 0.95);
+    }
+    
+    header {
+      position: relative;
+      height: 300px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    
+    header video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    
+    h1, h2, h3 {
+      font-family: 'Baloo 2', cursive;
+    }
+    
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+      color: #ffeb3b;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      letter-spacing: 1px;
+    }
+    
+    header p {
+      color: white;
+      font-size: 1.2rem;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+      margin-top: 0.5rem;
+    }
+    
+    nav {
+      display: flex;
+      justify-content: center;
+      background: 
+        url('background.jpg') center/cover,
+        #c62828;
+      padding: 0.8rem 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 2px solid #c62828;
+    }
+    
+    nav a {
+      color: #ffffff;
+      margin: 0 1.2rem;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+      background-color: rgba(198, 40, 40, 0.7);
+    }
+    
+    nav a:hover {
+      background: rgba(138, 26, 26, 0.9);
+      color: white;
+    }
+    
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #FFFFFF;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      border-radius: 5px;
+    }
+    
+    .dropdown-content a {
+      color: #c62828;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+      font-weight: bold;
+    }
+    
+    .dropdown-content a:hover {
+      background-color: #fbc02d;
+    }
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    
+    .section {
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(198, 40, 40, 0.1);
+      margin: 2rem auto;
+      padding: 2rem;
+      max-width: 1200px;
+    }
+    
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      padding: 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .product {
+      background: white;
+      border: 2px solid #ffeb3b;
+      border-radius: 10px;
+      padding: 1rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+    
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(198, 40, 40, 0.2);
+      border-color: #c62828;
+    }
+    
+    .product img {
+      width: 100%;
+      max-width: 160px;
+      height: auto;
+      border-radius: 8px;
+      cursor: zoom-in;
+      margin-bottom: 0.8rem;
+      border: 2px solid #c62828;
+    }
+    
+    .product h3 {
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+      color: #c62828;
+    }
+    
+    .product .price {
+      font-weight: bold;
+      color: #ff8f00;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+    
+    .product button {
+      background: #c62828;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 0.5rem;
+      width: 100%;
+      transition: background 0.3s ease;
+    }
+    
+    .product button:hover {
+      background: #b71c1c;
+    }
+    
+    .quantity-display {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: #c62828;
+      font-weight: bold;
+    }
+    
+    .cart-icon {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #c62828;
+      color: #ffeb3b;
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 999;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      border: 2px solid #ffeb3b;
+      transition: all 0.3s ease;
+    }
+    
+    .cart-icon:hover {
+      transform: scale(1.1);
+    }
+    
+    .cart-popup {
+      position: fixed;
+      top: 100px;
+      right: 20px;
+      width: 320px;
+      background: white;
+      border: 2px solid #ffeb3b;
+      border-radius: 10px;
+      padding: 1.2rem;
+      box-shadow: 0 0 20px rgba(0,0,0,0.15);
+      z-index: 998;
+      display: none;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+    
+    .cart-popup.active {
+      display: block;
+    }
+    
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.8rem;
+      padding: 10px;
+      border-bottom: 1px solid #ffeb3b;
+    }
+    
+    .cart-item-details {
+      flex-grow: 1;
+      color: #c62828;
+      font-weight: bold;
+    }
+    
+    .cart-item-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .cart-item-controls button {
+      background: #ffeb3b;
+      color: #c62828;
+      border: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.2s ease;
+    }
+    
+    .cart-item-controls button:hover {
+      background: #c62828;
+      color: white;
+    }
+    
+    .cart-item-controls span {
+      min-width: 30px;
+      text-align: center;
+    }
+    
+    .remove-item {
+      color: #c62828;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.3rem;
+      margin-left: 10px;
+      transition: transform 0.2s ease;
+    }
+    
+    .remove-item:hover {
+      transform: scale(1.2);
+    }
+    
+    .checkout-btn {
+      background: #c62828;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.2rem;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 1.2rem;
+      width: 100%;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: background 0.3s ease;
+    }
+    
+    .checkout-btn:hover {
+      background: #b71c1c;
+    }
+    
+    .cart-total {
+      font-weight: bold;
+      margin-top: 15px;
+      padding-top: 10px;
+      border-top: 2px solid #ffeb3b;
+      text-align: right;
+      color: #c62828;
+      font-size: 1.2rem;
+    }
+    
+    .product-category {
+      margin: 2.5rem 0;
+      background: rgba(255, 235, 59, 0.1);
+      padding: 1.5rem;
+      border-radius: 10px;
+      border: 1px dashed #c62828;
+    }
+    
+    .category-title {
+      background-color: #c62828;
+      color: #ffeb3b;
+      padding: 0.8rem;
+      border-radius: 5px;
+      margin-bottom: 1.5rem;
+      font-size: 1.3rem;
+      display: inline-block;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    }
+    
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: 
+        url('background.jpg') center/cover,
+        #c62828;
+      color: #ffffff;
+      margin-top: 3rem;
+      border-top: 3px solid #ffeb3b;
+      font-weight: bold;
+    }
+    
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      nav {
+        flex-wrap: wrap;
+      }
+      
+      nav a {
+        margin: 0.5rem;
+        padding: 0.5rem;
+        font-size: 0.9rem;
+      }
+      
+      .products {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="cart-icon" onclick="toggleCart()">🛒<span id="cart-count"></span></div>
+  <div class="cart-popup" id="cart-popup">
+    <h3>Your Cart</h3>
+    <div id="cart-items"></div>
+    <div class="cart-total" id="cart-total">Total: ₹0</div>
+    <button class="checkout-btn" onclick="checkout()">Complete Order</button>
+  </div>
+
+  <header>
+    <video autoplay muted loop playsinline>
+      <source src="videos/background-video.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+    <div>
+      <h1>Swami Gruha Udyog</h1>
+      <p>Handcrafted Art, Specially for Your Home</p>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#about">Our Story</a>
+    <div class="dropdown">
+      <a href="#products">Products</a>
+      <div class="dropdown-content">
+        <a href="#rangoli">Rangoli</a>
+        <a href="#toran">Toran</a>
+        <a href="#latkan">Latkan</a>
+        <a href="#pooja-thali">Pooja Thali</a>
+        <a href="#candle-stand">Candle Stand</a>
+      </div>
+    </div>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section class="section" id="about">
+    <h2>Our Story</h2>
+    <p>
+      Hello! I'm Supriya. Eight years ago, I had just one dream - to have my own small but self-sustaining business.
+      And from this dream was born the brand - Swami Gruha Udyog.
+
+      Since childhood, I've had a great passion for creating durable items from waste materials and handcrafted art...
+      I've created with my own hands - wall pieces for decoration, torans, latkans, acrylic rangolis, puja plates, and even wedding rukhwats!
+
+      Each design is a unique artwork that comes from my heart, made with love and crafted by hand.
+
+      We've received wonderful responses from stalls in Mumbai, Pune, Borivali, Dadar, and Maharashtra Vyapari Peth. Not only that, but some customers have even sent our products to their children living in the USA.
+
+      But then the question arose - how to make all this available to everyone in one place?
+
+      So now... Swami Gruha Udyog is coming to you in digital form!
+
+      You can easily contact us on Instagram, Facebook, WhatsApp, YouTube and our website, and place orders.
+
+      Don't forget to follow us - because soon we'll be coming with new and special designs... just for you!
+
+      🙏 Swami Gruha Udyog - Handcrafted art specially for your home. 🌸
+    </p>
+  </section>
+
+  <section id="products">
+    <div class="product-category" id="Pooja Thali">
+      <h2 class="category-title">Pooja Thali</h2>
+      <div class="products">
+        <div class="product" id="Pooja Thali">
+          <img src="GoldenPoojaThali.jpeg" onclick="zoomImage(this.src)" alt="PoojaThali">
+          <h3>PoojaThali</h3>
+          <p class="price">₹299</p>
+          <button onclick="addToCart('Pooja Thali', 'PoojaThali', 299, 'GoldenPoojaThali.jpeg')">Add to Cart</button>
+          <div class="quantity-display" id="qty-Pooja Thali">Quantity: 0</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-category" id="rangoli">
+      <h2 class="category-title">Rangoli</h2>
+      <div class="products">
+        <div class="product" id="product1">
+          <img src="images/rangoli.jpeg" onclick="zoomImage(this.src)" alt="Rangoli">
+          <h3>Rangoli Swastik</h3>
+          <p class="price">₹800</p>
+          <button onclick="addToCart('product1', 'Rangoli Swastik', 800, 'images/rangoli.jpeg')">Add to Cart</button>
+          <div class="quantity-display" id="qty-product1">Quantity: 0</div>
+        </div>
+        <div class="product" id="product2">
+          <img src="images/rangoli2.jpeg" onclick="zoomImage(this.src)" alt="Rangoli">
+          <h3>Leaf Rangoli</h3>
+          <p class="price">₹800</p>
+          <button onclick="addToCart('product2', 'Leaf Rangoli', 800, 'images/rangoli2.jpeg')">Add to Cart</button>
+          <div class="quantity-display" id="qty-product2">Quantity: 0</div>
+        </div>
+        <div class="product" id="product3">
+          <img src="images/rangoli3.jpeg" onclick="zoomImage(this.src)" alt="Rangoli">
+          <h3>Traditional Rangoli</h3>
+          <p class="price">₹800</p>
+          <button onclick="addToCart('product3', 'Traditional Rangoli', 800, 'images/rangoli3.jpeg')">Add to Cart</button>
+          <div class="quantity-display" id="qty-product3">Quantity: 0</div>
+        </div>
+        <div class="product" id="product4">
+          <img src="images/rangoli4.jpeg" onclick="zoomImage(this.src)" alt="Rangoli">
+          <h3>Floral Rangoli</h3>
+          <p class="price">₹800</p>
+          <button onclick="addToCart('product4', 'Floral Rangoli', 800, 'images/rangoli4.jpeg')">Add to Cart</button>
+          <div class="quantity-display" id="qty-product4">Quantity: 0</div>
+        </div>
+        <div class="product" id="product5">
+          <img src="images/rangoli5.jpeg" onclick="zoomImage(this.src)" alt="Rangoli">
+          <h3>Decorative Rangoli</h3>
+          <p class="price">₹800</p>
+          <button onclick="addToCart('product5', 'Decorative Rangoli', 800, 'images/rangoli5.jpeg')">Add to Cart</button>
+          <div class="quantity-display" id="qty-product5">Quantity: 0</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-category" id="toran">
+      <h2 class="category-title">Toran</h2>
+      <div class="products">
+        </div>
+      </div>
+    </div>
+
+    <div class="product-category" id="latkan">
+      <h2 class="category-title">Latkan</h2>
+      <div class="products">
+        </div>
+      </div>
+    </div>
+
+    <div class="product-category" id="candle-stand">
+      <h2 class="category-title">Candle Stand</h2>
+      <div class="products">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <h2>Contact Us</h2>
+    <p>INSTAGRAM <a class="group-btn" href="https://www.instagram.com/sgu.2022?igsh=MTlla2cyYng1NDlucg%3D%3D&utm_source=qr" target="_blank">@Swami_Gruha_Udyog</a></p>
+    <p>📞 PHONE <a href="tel:+919892432886">+91 9892432886</a></p>
+    <p>Email: <a href="mailto:kavitadhurat11@gmail.com">kavitadhurat11@gmail.com</a></p>
+  </section>
+
+  <footer>
+    <p>Swami Gruha Udyog - Handcrafted with Pride</p>
+  </footer>
+
+  <script>
+    const cart = {};
+
+    function addToCart(productId, name, price, imgSrc) {
+      if (cart[productId]) {
+        cart[productId].quantity++;
+      } else {
+        cart[productId] = { 
+          name: name, 
+          price: price, 
+          quantity: 1,
+          imgSrc: imgSrc
+        };
+      }
+      updateCart();
+      updateQuantityDisplay(productId);
+    }
+
+    function updateQuantityDisplay(productId) {
+      const display = document.getElementById(`qty-${productId}`);
+      if (display) {
+        const quantity = cart[productId] ? cart[productId].quantity : 0;
+        display.textContent = `Quantity: ${quantity}`;
+      }
+    }
+
+    function updateCart() {
+      const cartItems = document.getElementById("cart-items");
+      const cartTotal = document.getElementById("cart-total");
+      const cartCount = document.getElementById("cart-count");
+      
+      cartItems.innerHTML = "";
+      
+      let total = 0;
+      let count = 0;
+      
+      for (let productId in cart) {
+        const item = cart[productId];
+        const li = document.createElement("div");
+        li.className = "cart-item";
+        
+        const itemDetails = document.createElement("div");
+        itemDetails.className = "cart-item-details";
+        itemDetails.textContent = `${item.name} - ₹${item.price}`;
+        
+        const controls = document.createElement("div");
+        controls.className = "cart-item-controls";
+        
+        const decreaseBtn = document.createElement("button");
+        decreaseBtn.textContent = "-";
+        decreaseBtn.onclick = () => updateQuantity(productId, -1);
+        
+        const quantitySpan = document.createElement("span");
+        quantitySpan.textContent = item.quantity;
+        
+        const increaseBtn = document.createElement("button");
+        increaseBtn.textContent = "+";
+        increaseBtn.onclick = () => updateQuantity(productId, 1);
+        
+        const removeBtn = document.createElement("button");
+        removeBtn.className = "remove-item";
+        removeBtn.innerHTML = "&times;";
+        removeBtn.onclick = () => removeItem(productId);
+        
+        controls.appendChild(decreaseBtn);
+        controls.appendChild(quantitySpan);
+        controls.appendChild(increaseBtn);
+        
+        li.appendChild(itemDetails);
+        li.appendChild(controls);
+        li.appendChild(removeBtn);
+        cartItems.appendChild(li);
+        
+        total += item.price * item.quantity;
+        count += item.quantity;
+      }
+      
+      if (count === 0) {
+        cartItems.innerHTML = '<p>Your cart is empty.</p>';
+      }
+      
+      cartTotal.textContent = `Total: ₹${total}`;
+      cartCount.textContent = count ? `(${count})` : '';
+    }
+
+    function updateQuantity(productId, change) {
+      if (cart[productId]) {
+        cart[productId].quantity += change;
+        if (cart[productId].quantity <= 0) {
+          delete cart[productId];
+        }
+        updateCart();
+        updateQuantityDisplay(productId);
+      }
+    }
+
+    function removeItem(productId) {
+      delete cart[productId];
+      updateCart();
+      updateQuantityDisplay(productId);
+    }
+
+    function toggleCart() {
+      document.getElementById('cart-popup').classList.toggle('active');
+    }
+
+    function checkout() {
+      if (Object.keys(cart).length === 0) {
+        alert("Your cart is empty!");
+        return;
+      }
+      
+      let message = "Hello! I would like to purchase the following items:\n\n";
+      let total = 0;
+      let imageLinks = "\nProduct Images:\n";
+      
+      for (let productId in cart) {
+        const item = cart[productId];
+        const itemTotal = item.price * item.quantity;
+        message += `- ${item.name} (Qty: ${item.quantity}) - ₹${itemTotal}\n`;
+        imageLinks += `${item.imgSrc}\n`;
+        total += itemTotal;
+      }
+      
+      message += `\nTotal Amount: ₹${total}`;
+      message += `\n${imageLinks}`;
+      message += "\nPlease help me with payment and delivery details.";
+      
+      const encodedMessage = encodeURIComponent(message);
+      const phone = "9321403308";
+      window.open(`https://wa.me/91${phone}?text=${encodedMessage}`, "_blank");
+    }
+
+    function zoomImage(src) {
+      const win = window.open('', '_blank');
+      win.document.write(`<img src="${src}" style="width:100%">`);
+    }
+  </script>
+</body>
+</html>
